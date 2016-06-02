@@ -7,15 +7,14 @@
             <h1><a href="">Karima's dungeon of python noobieness</a></h1>
         </div>
         
-        <div>
-            {{ posts }}
-        </div>
-        
-        <div>
-            {{ posts }}
-        </div>
-        
-
+        {% for post in posts %}
+            <div>
+                <p> published: {{ post.created_date}}</p>
+                <h1>{{ post.title }}</h1>
+                <p>{{ post.text|linebreaks }}</p>
+            </div>
+        {% endfor %}
+    
 	</body>
 </html>
 	
