@@ -1,20 +1,14 @@
-<html>
-	<head>
-		<title>Karima's dungeon</title>
-	</head>
-	<body>
-        <div>
-            <h1><a href="">Karima's dungeon of python noobieness</a></h1>
-        </div>
-        
+{% extends 'blog/base.html' %}
+
+    {% block content %}
         {% for post in posts %}
-            <div>
-                <p> published: {{ post.created_date}}</p>
-                <h1>{{ post.title }}</h1>
+            <div class="post">
+                <div class="date">
+                     <p> published: {{ post.created_date}}</p>
+                </div>
+                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
                 <p>{{ post.text|linebreaks }}</p>
             </div>
         {% endfor %}
-    
-	</body>
-</html>
-	
+    {% endblock % }
+{% endblock %}
